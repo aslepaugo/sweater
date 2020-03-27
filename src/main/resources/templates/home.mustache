@@ -7,9 +7,15 @@
 <body>
 
 
+<form action="/logout" method="post">
+    <input type="submit" value="Sign Out"/>
+    <input type="hidden" name="_csrf" value="{{_csrf.token}}">
+</form>
+
 <form method="post">
     <input type="text" name="text" placeholder="Enter your message: "/>
     <input type="text" name="tag" placeholder="Tag"  />
+    <input type="hidden" name="_csrf" value="{{_csrf.token}}">
     <button type="submit">Add</button>
 </form>
 
@@ -19,6 +25,7 @@
 
 <form method="post" action="filter">
     <input type="text" name="filter" placeholder="Filter:"/>
+    <input type="hidden" name="_csrf" value="{{_csrf.token}}">
     <button type="submit">Find</button>
 </form>
 

@@ -1,4 +1,4 @@
-package com.example.webcontent;
+package com.example.webcontent.controller;
 
 
 import com.example.webcontent.domain.Message;
@@ -13,21 +13,21 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-public class GreetingController {
+public class MainController {
 
     @Autowired
     private MessageRepo messagesRepo;
 
-    @GetMapping("/greeting")
+    @GetMapping("/")
     public String greeting(
-            @RequestParam(name="name", required = false, defaultValue = "World") String name, Map<String, Object> model
+            Map<String, Object> model
     ){
-        model.put("name", name);
+
         return "greeting";
     }
 
 
-    @GetMapping()
+    @GetMapping("/home")
     public String home(
             Map<String, Object> model
     ){
@@ -36,7 +36,7 @@ public class GreetingController {
         return "home";
     }
 
-    @PostMapping
+    @PostMapping("/home")
     public String add(
             @RequestParam String text,
             @RequestParam String tag,
@@ -52,6 +52,7 @@ public class GreetingController {
         return "home";
     }
 
+    /*TODO: Bad action point move to filter page and post will not work;*/
     @PostMapping("filter")
     public String filter(
         @RequestParam String filter,
