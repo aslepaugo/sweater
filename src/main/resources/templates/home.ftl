@@ -14,12 +14,11 @@
 </form>
 
 <div>
-    Some text
+    List of messages
 </div>
 
-<form method="post" action="filter">
-    <input type="text" name="filter" placeholder="Filter:"/>
-    <input type="hidden" name="_csrf" value="${_csrf.token}">
+<form method="get" action="home">
+    <input type="text" name="filter" placeholder="Filter:" value="${filter}"/>
     <button type="submit">Find</button>
 </form>
 
