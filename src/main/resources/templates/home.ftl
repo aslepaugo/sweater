@@ -21,7 +21,7 @@
 </div>
 
 <form method="get" action="home">
-    <input type="text" name="filter" placeholder="Filter:" value="${filter}"/>
+    <input type="text" name="filter" placeholder="Filter:" value="${filter?ifExists}"/>
     <button type="submit">Find</button>
 </form>
 
