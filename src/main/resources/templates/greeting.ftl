@@ -1,6 +1,8 @@
 <#import  "parts/common.ftl" as cf>
 
 <@cf.page>
-<div>Hello, user</div>
-<a href="/home">Home page </a>
+<h5>Hello, guest!</h5>
+<div>
+It's just a simple public messaging system
+</div>
 </@cf.page>
