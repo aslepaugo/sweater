@@ -5,6 +5,9 @@
 <div>
 <@l.logout />
 </div>
+<span>
+    <a href="/user">User List</a>
+</span>
 
 <form method="post">
     <input type="text" name="text" placeholder="Enter your message: "/>
