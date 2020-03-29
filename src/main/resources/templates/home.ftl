@@ -9,9 +9,10 @@
     <a href="/user">User List</a>
 </span>
 
-<form method="post">
+<form method="post" enctype="multipart/form-data">
     <input type="text" name="text" placeholder="Enter your message: "/>
     <input type="text" name="tag" placeholder="Tag"  />
+    <input type="file" name="file" />
     <input type="hidden" name="_csrf" value="${_csrf.token}">
     <button type="submit">Add</button>
 </form>
@@ -32,6 +33,11 @@
         <span>${message.text}</span>
         <i>${message.tag}</i>
         <strong>${message.authorName}</strong>
+        <div>
+            <#if message.filename??>
+                <img src="/img/${message.filename}">
+            </#if>
+        </div>
     </div>
 <#else>
 No messages
