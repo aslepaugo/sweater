@@ -12,11 +12,17 @@
 <a class="btn btn-primary" data-toggle="collapse" href="#collapseNewMessage" role="button" aria-expanded="false" aria-controls="collapseNewMessage">
     Add new message
 </a>
-<div class="collapse" id="collapseNewMessage">
+<div class="collapse <#if message??>show</#if>" id="collapseNewMessage">
     <div class="form-group mt-3">
         <form method="post" enctype="multipart/form-data" >
             <div class="form-group">
-                <input type="text" name="text" class="form-control" placeholder="Enter your message: "/>
+                <input type="text"  class="form-control ${(textError??)?string('is-invalid', '')}"
+                value="<#if message??>${message.text}</#if>"" name="text" placeholder="Enter your message:">
+                <#if textError??>
+                    <div class="invalid-feedback">
+                        ${textError}
+                    </div>
+                </#if>
             </div>
             <div class="form-group">
                 <input type="text" name="tag" class="form-control" placeholder="Tag"  />
